@@ -1,9 +1,3 @@
-function GetInfo() {
-  const city = document.getElementById("inputCity");
-  const cityShow = document.getElementById("cityShow");
-  cityShow.innerHTML = "--" + city.value + "--";
-}
-
 function fetchWeather() {
   var url =
     "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=7af7bf73abf8c260be9d889d547f9535";
