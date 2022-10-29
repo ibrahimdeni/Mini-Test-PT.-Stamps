@@ -8,9 +8,15 @@ function fetchWeather() {
       console.log("Weather Forecast :");
       for (i = 2; i <= 40; i = i + 8) {
         var tempt = (data.list[i].main.temp - 273.15).toFixed(2);
-        var time = new Date(data.list[i].dt_txt);
-        time = new Date(time).toUTCString();
-        time = time.split(" ").slice(0, 4).join(" ");
+
+        //cara format jenis 1
+        var time = new Date(data.list[i].dt_txt).toDateString();
+
+        //cara format jenis 2
+        // var time = new Date(data.list[i].dt_txt);
+        // time = time.toUTCString();
+        // time = time.split(" ").slice(0, 4).join(" ");
+
         console.log(`${time} : ${tempt}°C`);
       }
     });
