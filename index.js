@@ -1,6 +1,6 @@
 function fetchWeather() {
   var url =
-    "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=7af7bf73abf8c260be9d889d547f9535";
+    "https://api.openweathermap.org/data/2.5/forecast?q=jakarta&appid=7af7bf73abf8c260be9d889d547f9535";
 
   fetch(url)
     .then((response) => response.json())
@@ -10,14 +10,14 @@ function fetchWeather() {
         var tempt = (data.list[i].main.temp - 273.15).toFixed(2);
 
         //cara format jenis 1
-        var time = new Date(data.list[i].dt_txt).toDateString();
+        // var time = new Date(data.list[i].dt_txt).toDateString();
 
         //cara format jenis 2
-        // var time = new Date(data.list[i].dt_txt);
-        // time = time.toUTCString();
-        // time = time.split(" ").slice(0, 4).join(" ");
+        var time = new Date(data.list[i].dt_txt);
+        time = time.toUTCString();
+        time = time.split(" ").slice(0, 4).join(" ");
 
-        console.log(`${time} : ${tempt}°C`);
+        console.log(`${time}: ${tempt}°C`);
       }
     });
 }
