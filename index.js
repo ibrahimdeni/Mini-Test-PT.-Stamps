@@ -7,19 +7,19 @@ function fetchWeather() {
     .then((data) => {
       console.log("Weather Forecast :");
       for (i = 2; i <= 40; i = i + 8) {
-        var tempt = (data.list[i].main.temp - 273.15).toFixed(2);
+        var tempt = (data.list[i].main.temp - 273.15).toFixed(2); //ambil data API temperatur rata-rata
 
         //cara format jenis 1 (mengikuti waktu aktual/local)
         //contoh hasil format "Sun 30 Oct 2022"
         // var time = new Date(data.list[i].dt_txt).toDateString();
+        // console.log(`${time}: ${tempt}°C`); //"Sun 30 Oct 2022: 29.17°C"
 
         //cara format jenis 2 (mengikuti waktu UTC(Universal Time Coordinated))
         //contoh hasil format "Sun, 30 Oct 2022" (tapi telat 7 jam dibanding WIB)
-        var time = new Date(data.list[i].dt_txt);
+        var time = new Date(data.list[i].dt_txt); //ambil data API waktu
         time = time.toUTCString();
         time = time.split(" ").slice(0, 4).join(" ");
-
-        console.log(`${time}: ${tempt}°C`);
+        console.log(`${time}: ${tempt}°C`); //"Sun, 30 Oct 2022: 29.17°C"
       }
     });
 }
